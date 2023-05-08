@@ -66,6 +66,14 @@ label {
     margin-bottom: 5px;
     font-weight: 400;
 }
+
+button{
+    background-color: transparent;
+    border: none;
+    vertical-align: middle;
+    background-repeat: no-repeat; 
+}
+
 .alert { 
     border-radius: 0px;
 }
@@ -654,6 +662,7 @@ font-size: 19px;
 
 
 /* 내가 추가한것. */
+
 .camera_search{
     /* margin-top: 15%; */
     background-color: transparent;
@@ -671,7 +680,7 @@ font-size: 19px;
 }
 /* -------------- */
 .card.horizontal.cardIcon .card-image i {
-    margin-top: 10%;
+    margin-top: 30%;
     font-size: 150px;
     /* opacity: .2; */
 }

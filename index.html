@@ -233,7 +233,7 @@
 						<a class="active-menu waves-effect waves-dark" href="index.html"><i class="fa fa-dashboard"></i>
 							Dashboard</a>
 					</li>
-					<li>
+					<!-- <li>
 						<a href="ui-elements.html" class="waves-effect waves-dark"><i class="fa fa-desktop"></i> UI Elements</a>
 					</li>
 					<li>
@@ -281,7 +281,7 @@
 					</li>
 					<li>
 						<a href="empty.html" class="waves-effect waves-dark"><i class="fa fa-fw fa-file"></i> Empty Page</a>
-					</li>
+					</li> -->
 				</ul>
 
 			</div>
@@ -305,14 +305,13 @@
 
 				<div class="dashboard-cards">
 					<div class="row">
-						<div class="col-xs-12 col-sm-6 col-md-6">
 
+
+						<div class="col-xs-12 col-sm-6 col-md-6">
 							<div class="card horizontal cardIcon ">
 								<div class="card-image red">
 									<input type="file" name="photoFile" id="photoFile" accept="image/*" capture="camera"
 										style="display:none;">
-
-
 
 									<button type="button" class="camera_search  waves-effect waves-dark  "> <i
 											class="material-icons dp48">photo_camera</i> </button>
@@ -320,18 +319,36 @@
 								</div>
 								<div class="card-stacked red">
 									<div class="card-content">
-										<h3>카메라</h3>
+										<h3>카메라 (자동)</h3>
 									</div>
 									<!-- <div class="card-action">
 										<strong>REVENUE</strong>
 									</div> -->
 								</div>
 							</div>
-
 						</div>
+
+
 						<div class="col-xs-12 col-sm-6 col-md-6">
-							<div class="card horizontal cardIcon waves-effect waves-dark">
+							<div class="card horizontal cardIcon ">
 								<div class="card-image orange">
+
+									<button onclick="window.open('https://various.foodsafetykorea.go.kr/nutrient/')" type="button"
+										class=" waves-effect waves-dark "> <i class="material-icons dp48">find_in_page</i> </a>
+										<!-- <input type="button" value="카메라" class="camera_search" /> -->
+								</div>
+								<div class="card-stacked orange">
+									<div class="card-content">
+										<h3>웹페이지 (수동)</h3>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+						<!-- <div class="col-xs-12 col-sm-6 col-md-6">
+							<div class="card horizontal cardIcon waves-effect waves-dark">
+								<div class=" card-image orange">
 									<i class="material-icons dp48">find_in_page</i>
 								</div>
 								<div class="card-stacked orange">
@@ -340,8 +357,12 @@
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-xs-12 col-sm-6 col-md-3">
+						</div> -->
+
+
+						<!-- 카드들 주석-->
+
+						<!-- <div class="col-xs-12 col-sm-6 col-md-3">
 
 							<div class="card horizontal cardIcon waves-effect waves-dark">
 								<div class="card-image blue">
@@ -374,7 +395,9 @@
 								</div>
 							</div>
 
-						</div>
+						</div> -->
+
+
 					</div>
 				</div>
 				<!-- /. ROW  -->
@@ -384,28 +407,28 @@
 							<div class="row">
 								<div class="col-xs-12 col-sm-6 col-md-6">
 									<div class="card-panel text-center">
-										<h4>Profit</h4>
+										<h4>TEST1</h4>
 										<div class="easypiechart" id="easypiechart-blue" data-percent="90"><span class="percent">82%</span>
 										</div>
 									</div>
 								</div>
 								<div class="col-xs-12 col-sm-6 col-md-6">
 									<div class="card-panel text-center">
-										<h4>No. of Visits</h4>
+										<h4>TEST2</h4>
 										<div class="easypiechart" id="easypiechart-red" data-percent="46"><span class="percent">46%</span>
 										</div>
 									</div>
 								</div>
 								<div class="col-xs-12 col-sm-6 col-md-6">
 									<div class="card-panel text-center">
-										<h4>Customers</h4>
+										<h4>TEST3</h4>
 										<div class="easypiechart" id="easypiechart-teal" data-percent="84"><span class="percent">84%</span>
 										</div>
 									</div>
 								</div>
 								<div class="col-xs-12 col-sm-6 col-md-6">
 									<div class="card-panel text-center">
-										<h4>Sales</h4>
+										<h4>TEST4</h4>
 										<div class="easypiechart" id="easypiechart-orange" data-percent="55"><span
 												class="percent">55%</span>
 										</div>
@@ -489,7 +512,7 @@
 					<div class="col-md-4 col-sm-12 col-xs-12">
 						<div class="card">
 							<div class="card-action">
-								<b>Tasks Panel</b>
+								<b>원재료 검색 결과</b>
 							</div>
 							<div class="card-image">
 								<div class="collection">
@@ -497,22 +520,22 @@
 											data-badge-caption="red">4</span></a>
 									<a href="#!" class="collection-item">Blue<span class="new badge blue"
 											data-badge-caption="blue">4</span></a>
-									<a href="#!" class="collection-item"><span class="badge">1</span>Alan</a>
-									<a href="#!" class="collection-item"><span class="new badge">4</span>Alan</a>
+									<a href="#!" class="collection-item"><span class="badge">1</span>Yellow</a>
+									<!-- <a href="#!" class="collection-item"><span class="new badge">4</span>Alan</a>
 									<a href="#!" class="collection-item">Alan<span class="new badge blue"
 											data-badge-caption="blue">4</span></a>
 									<a href="#!" class="collection-item"><span class="badge">14</span>Alan</a>
 									<a href="#!" class="collection-item">Custom Badge Captions<span class="new badge"
 											data-badge-caption="custom caption">4</span></a>
 									<a href="#!" class="collection-item">Custom Badge Captions<span class="badge"
-											data-badge-caption="custom caption">4</span></a>
+											data-badge-caption="custom caption">4</span></a> -->
 								</div>
 							</div>
 
 						</div>
 
 					</div>
-					<div class="col-md-8 col-sm-12 col-xs-12">
+					<!-- <div class="col-md-8 col-sm-12 col-xs-12">
 						<div class="card">
 							<div class="card-action">
 								<b>User List</b>
@@ -555,9 +578,7 @@
 							</div>
 						</div>
 
-
-
-					</div>
+					</div> -->
 				</div>
 				<!-- /. ROW  -->
 				<div class="fixed-action-btn horizontal click-to-toggle">
@@ -573,8 +594,7 @@
 				</div>
 
 				<footer>
-					<p>Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a>
-					</p>
+
 
 
 				</footer>
