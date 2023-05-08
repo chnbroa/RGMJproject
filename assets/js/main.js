@@ -17,6 +17,21 @@
 
 // const p = document.getElementById("search_test");
 
+let productData;
+
+
+async function speech_text(text) {
+  const speech = new SpeechSynthesisUtterance();
+  speech.lang = 'ko-KR';
+  speech.text = text;
+  speech.volume = 1;
+  speech.rate = 1;
+  speech.pitch = 1;
+  window.speechSynthesis.speak(speech);
+}
+
+
+
 
 
 window.onload = function () {
@@ -56,10 +71,16 @@ window.onload = function () {
       method: 'POST',
       body: formData
     })
-
       .then(response => response.json())
       .then(data => {
+        productData = data;
         console.log(data); // Print the JSON data to the console
+
+        speech_text(data["search_food"]['식품명'][0]);
+
+        document.getElementById('speech_text_button').addEventListener('click', function () {
+          speech_text(data["search_food"]['식품명'][0]);
+        });
 
         // let key = Object.keys(data["search_result"]);
         // let name_key = Object.keys(data["search_result"]["대표_원재료_명"]).length;
@@ -70,19 +91,13 @@ window.onload = function () {
         //   str += ', ';
         // }
         // p.innerText = str;
-
-
+        return data
       })
       .catch(error => {
         console.error('Error sending image:', error);
       });
   });
 }
-
-
-
-
-
 
 
 
