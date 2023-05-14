@@ -73,8 +73,8 @@ function progress_bar_apply(structure) {
   protein_span.innerHTML = val;
 
   //지방
-  const province = document.getElementById("search_province");
-  const province_span = document.getElementById("search_province_span");
+  const province = document.getElementById("search_fatty");
+  const province_span = document.getElementById("search_fatty_span");
   val = nutrient_cal("지방", structure["지방(g)"]) + "%";
   province.style.width = val;
   province_span.innerHTML = val;
@@ -86,13 +86,35 @@ function progress_bar_apply(structure) {
   carbohydrate.style.width = val;
   carbohydrate_span.innerHTML = val;
 
+  //콜레스테롤
+  const holesterol = document.getElementById("search_cholesterol");
+  const holesterol_span = document.getElementById("search_cholesterol_span");
+  val = nutrient_cal("콜레스테롤", structure["콜레스테롤(㎎)"]) + "%";
+  holesterol.style.width = val;
+  holesterol_span.innerHTML = val;
+
+
+  //총 포화 지방산
+  const saturated_fatty = document.getElementById("search_saturated_fatty");
+  const saturated_fatty_span = document.getElementById("search_saturated_fatty_span");
+  val = nutrient_cal("총 포화 지방산", structure["총 포화 지방산(g)"]) + "%";
+  saturated_fatty.style.width = val;
+  saturated_fatty_span.innerHTML = val;
+
+  //총 당류
+
+  const sugars = document.getElementById("search_sugars");
+  const sugars_span = document.getElementById("search_sugars_span");
+  val = nutrient_cal("총당류", structure["총당류(g)"]) + "%";
+  sugars.style.width = val;
+  sugars_span.innerHTML = val;
+
   //나트륨
   const nateulyum = document.getElementById("search_nateulyum");
   const nateulyum_span = document.getElementById("search_nateulyum_span");
   val = nutrient_cal("나트륨", structure["나트륨(㎎)"]) + "%";
   nateulyum.style.width = val;
   nateulyum_span.innerHTML = val;
-
 }
 
 window.onload = function () {
@@ -139,11 +161,7 @@ window.onload = function () {
         let structure = {};
 
         let key = Object.keys(data["search_food"]);
-        for (let i in key) {
-          console.log(key[i]);
-          console.log(data["search_food"][key[i]][0]);
-          structure[key[i]] = data["search_food"][key[i]][0]
-        }
+        for (let i in key) { structure[key[i]] = data["search_food"][key[i]][0] }
         speech_text(structure['식품명']);
         document.getElementById('speech_text_button').addEventListener('click', function () {
           speech_text(structure['식품명']);
@@ -171,66 +189,5 @@ window.onload = function () {
 }
 
 
-
-
-// async function f() {
-//   let response = await fetch('./test.json');
-//   let user = await response.json();
-//   console.log(user["search_result"]);
-//   let key = Object.keys(user["search_result"]);
-//   let name_key = Object.keys(user["search_result"]["대표_원재료_명"]).length;
-//   console.log(name_key);
-//   for (let j = 0; j < name_key; j++) {
-//     for (let i in key) {
-//       console.log(user["search_result"][key[i]][j])
-//     }
-//     console.log("\n");
-//   }
-
-
-//   return user;
-//   // await fetch("./test.json")
-//   //   .then(response => {
-//   //     return response.json();
-//   //   })
-//   // .then(jsondata => console.log(jsondata));
-// }
-
-// async function ff() {
-//   let response = await fetch('./test.json');
-//   let user = await response.json();
-//   console.log(user["search_result"]);
-//   let key = Object.keys(user["search_result"]);
-//   let name_key = Object.keys(user["search_result"]["대표_원재료_명"]).length;
-//   console.log(name_key);
-//   let str = ' ';
-//   for (let j = 0; j < name_key; j++) {
-//     str += user["search_result"][key[1]][j]
-//     str += ', ';
-//   }
-//   console.log(str);
-//   return str
-// }
-
-
-// async function fff() {
-//   let response = await fetch('./test.json');
-//   let user = await response.json();
-//   console.log(user["search_food"]['식품명'][0]);
-
-
-//   let str = ' ';
-//   // for (let j = 0; j < name_key; j++) {
-//   //   console.log(user["search_food"][key[1]][j]);
-//   // }
-//   return str
-// }
-
-
-
-
-// let test = fff();
-// // const result = await test.json();
-// console.log(test);
 // // clg tab
 // // nfn tab

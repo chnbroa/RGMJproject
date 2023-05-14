@@ -687,6 +687,15 @@ font-size: 19px;
     line-height: 8px;
     margin: 0px;
 }
+.progress-bar-yellow{
+    background-color: #bac44c;
+  }
+.progress-bar-pink{
+    background-color: #e872a1;
+  }
+  .progress-bar-gray{
+    background-color:#848484
+  }
 
 /* -------------- */
 .card.horizontal.cardIcon .card-image i {
