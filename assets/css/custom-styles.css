@@ -661,7 +661,7 @@ font-size: 19px;
 }
 
 
-/* 내가 추가한것. */
+/*---------추가-----------*/
 
 .camera_search{
     /* margin-top: 15%; */
@@ -678,6 +678,16 @@ font-size: 19px;
 .card.horizontal {
     flex-direction:column;
 }
+
+.search_result{
+    font-weight: bold;
+}
+.search_result p{
+    font-size: 15px;
+    line-height: 8px;
+    margin: 0px;
+}
+
 /* -------------- */
 .card.horizontal.cardIcon .card-image i {
     margin-top: 30%;

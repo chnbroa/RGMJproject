@@ -1149,7 +1149,7 @@
   border-top: 1px solid #eee;
  }
  .sr-only {
-  position: absolute;
+  /* position: absolute; */
   width: 1px;
   height: 1px;
   padding: 0;
@@ -5106,7 +5106,7 @@
  }
  .progress {
   height: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   overflow: hidden;
   background-color: #f5f5f5;
   border-radius: 4px;

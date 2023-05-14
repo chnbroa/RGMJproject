@@ -30,9 +30,70 @@ async function speech_text(text) {
   window.speechSynthesis.speak(speech);
 }
 
+// 영양성분 계산기
+//  표시 영양성분 값/ 영양소 기준치에서의 기준치값 * 100 
+function nutrient_cal(idx, val) {
+  let standard_val;
+  switch (idx) {
+    case '단백질':
+      standard_val = 55;
+      break;
+    case '지방':
+      standard_val = 54;
+      break;
+    case '탄수화물':
+      standard_val = 324;
+      break;
+    case '나트륨':
+      standard_val = 2000;
+      break;
+    case '콜레스테롤':
+      standard_val = 300;
+      break;
+    case '총 포화 지방산':
+      standard_val = 15;
+      break;
+    case '총당류':
+      standard_val = 100;
+      break;
+    default:
+      console.log("영양소계산 오류");
+      return 0;
+  }
+  let result = Math.round(val / standard_val * 100);
+  return result;
+}
 
+function progress_bar_apply(structure) {
+  //단백질
+  const protein = document.getElementById("search_protein");
+  const protein_span = document.getElementById("search_protein_span");
+  let val = nutrient_cal("단백질", structure["단백질(g)"]) + "%";
+  protein.style.width = val;
+  protein_span.innerHTML = val;
 
+  //지방
+  const province = document.getElementById("search_province");
+  const province_span = document.getElementById("search_province_span");
+  val = nutrient_cal("지방", structure["지방(g)"]) + "%";
+  province.style.width = val;
+  province_span.innerHTML = val;
 
+  //탄수화물
+  const carbohydrate = document.getElementById("search_carbohydrate");
+  const carbohydrate_span = document.getElementById("search_carbohydrate_span");
+  val = nutrient_cal("탄수화물", structure["탄수화물(g)"]) + "%";
+  carbohydrate.style.width = val;
+  carbohydrate_span.innerHTML = val;
+
+  //나트륨
+  const nateulyum = document.getElementById("search_nateulyum");
+  const nateulyum_span = document.getElementById("search_nateulyum_span");
+  val = nutrient_cal("나트륨", structure["나트륨(㎎)"]) + "%";
+  nateulyum.style.width = val;
+  nateulyum_span.innerHTML = val;
+
+}
 
 window.onload = function () {
   const imageInput = document.querySelector('input[type="file"]');
@@ -75,12 +136,22 @@ window.onload = function () {
       .then(data => {
         productData = data;
         console.log(data); // Print the JSON data to the console
+        let structure = {};
 
-        speech_text(data["search_food"]['식품명'][0]);
-
+        let key = Object.keys(data["search_food"]);
+        for (let i in key) {
+          console.log(key[i]);
+          console.log(data["search_food"][key[i]][0]);
+          structure[key[i]] = data["search_food"][key[i]][0]
+        }
+        speech_text(structure['식품명']);
         document.getElementById('speech_text_button').addEventListener('click', function () {
-          speech_text(data["search_food"]['식품명'][0]);
+          speech_text(structure['식품명']);
         });
+
+        //1일영향섭취기준(%) progress-bar
+        progress_bar_apply(structure);
+
 
         // let key = Object.keys(data["search_result"]);
         // let name_key = Object.keys(data["search_result"]["대표_원재료_명"]).length;
@@ -98,6 +169,7 @@ window.onload = function () {
       });
   });
 }
+
 
 
 
