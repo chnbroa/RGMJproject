@@ -117,6 +117,72 @@ function progress_bar_apply(structure) {
   nateulyum_span.innerHTML = val;
 }
 
+function kcal_graph(structure) {
+
+  Morris.Donut({
+    element: 'morris-donut-chart',
+    data: [{
+      label: "하루 권장 Kacl",
+      value: 2500
+    }, {
+
+      label: structure['1회제공량'] + "g Kacl",
+      value: structure['에너지(㎉)']
+    }],
+    colors: [
+      '#414e63',
+      '#e96562'
+    ],
+    resize: true
+  });
+}
+
+function nutrient_graph(structure) {
+  Morris.Bar({
+    element: 'morris-bar-chart',
+    data: [{
+      y: '단백질',
+      a: 55,
+      b: structure["단백질(g)"]
+    }, {
+      y: '지방',
+      a: 54,
+      b: structure["지방(g)"]
+    }, {
+      y: '탄수화물',
+      a: 324,
+      b: structure["탄수화물(g)"]
+    }, {
+      y: '콜레스테롤',
+      a: 300,
+      b: structure["콜레스테롤(㎎)"]
+    }, {
+      y: '총 포화 지방산',
+      a: 15,
+      b: structure["총 포화 지방산(g)"]
+    }, {
+      y: '총당류',
+      a: 100,
+      b: structure["총당류(g)"]
+    }
+    ],
+    xkey: 'y',
+    ykeys: ['a', 'b'],
+    labels: ['기준치', '검색 결과'],
+    barColors: [
+      '#e96562', '#414e63',
+      '#A8E9DC'
+    ],
+    hideHover: 'auto',
+    resize: true
+  });
+
+}
+
+
+const row_toggle = document.querySelectorAll('.row_toggle');
+
+
 window.onload = function () {
   const imageInput = document.querySelector('input[type="file"]');
 
@@ -165,12 +231,17 @@ window.onload = function () {
         speech_text(structure['식품명']);
         document.getElementById('speech_text_button').addEventListener('click', function () {
           speech_text(structure['식품명']);
+
         });
 
         //1일영향섭취기준(%) progress-bar
         progress_bar_apply(structure);
 
+        //칼로리 원 그래프
+        kcal_graph(structure)
 
+        //영양소 그래프
+        nutrient_graph(structure)
         // let key = Object.keys(data["search_result"]);
         // let name_key = Object.keys(data["search_result"]["대표_원재료_명"]).length;
         // console.log(name_key);
@@ -180,6 +251,12 @@ window.onload = function () {
         //   str += ', ';
         // }
         // p.innerText = str;
+
+        //그래프 토글
+        row_toggle.forEach(element => {
+          element.classList.remove('row_toggle');
+        });
+
         return data
       })
       .catch(error => {
@@ -189,5 +266,8 @@ window.onload = function () {
 }
 
 
+
+
 // // clg tab
 // // nfn tab
+

@@ -658,6 +658,8 @@ font-size: 19px;
     text-align: center;
     vertical-align: middle;
     max-width: 100%;
+
+
 }
 
 
@@ -697,6 +699,12 @@ font-size: 19px;
     background-color:#848484
   }
 
+.card_height{
+    height: 402px;
+}
+.row_toggle{
+    display: none;
+}
 /* -------------- */
 .card.horizontal.cardIcon .card-image i {
     margin-top: 30%;
@@ -756,6 +764,12 @@ padding: 0 15px 0px 15px;
     padding-top: 5px;
     color: #4BD28C;
 }
+
+@media (max-width: 992px) {
+    .card_height{
+        height: 226px;
+    }
+}
  @media(max-width:768px) {
 	  
 	 .navbar-header {
@@ -771,6 +785,9 @@ padding: 0 15px 0px 15px;
     .navbar-top-links{
         display: none;
     }
+
+
+
  }
   @media(max-width:520px) {
 	  ul#dropdown1 {
