@@ -126,7 +126,7 @@ function kcal_graph(structure) {
       value: 2500
     }, {
 
-      label: structure['1회제공량'] + "g Kacl",
+      label: structure['1회제공량'] + "g당 Kacl",
       value: structure['에너지(㎉)']
     }],
     colors: [
