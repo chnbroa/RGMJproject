@@ -9,7 +9,7 @@
     var mainApp = {
 
         initFunction: function () {
-            /*MENU 
+            /*MENU
             ------------------------------------*/
             $('#main-menu').metisMenu();
 
@@ -26,33 +26,21 @@
             // Morris.Bar({
             //     element: 'morris-bar-chart',
             //     data: [{
-            //         y: '2006',
-            //         a: 100,
-            //         b: 90
+            //         y: '1',
+            //         a: 0,
+            //         b: 0
             //     }, {
-            //         y: '2007',
-            //         a: 75,
-            //         b: 65
+            //         y: '2',
+            //         a: 0,
+            //         b: 0
             //     }, {
-            //         y: '2008',
-            //         a: 50,
-            //         b: 40
+            //         y: '3',
+            //         a: 0,
+            //         b: 0
             //     }, {
-            //         y: '2009',
-            //         a: 75,
-            //         b: 65
-            //     }, {
-            //         y: '2010',
-            //         a: 50,
-            //         b: 40
-            //     }, {
-            //         y: '2011',
-            //         a: 75,
-            //         b: 65
-            //     }, {
-            //         y: '2012',
-            //         a: 100,
-            //         b: 90
+            //         y: '4',
+            //         a: 0,
+            //         b: 0
             //     }],
             //     xkey: 'y',
             //     ykeys: ['a', 'b'],
@@ -72,18 +60,14 @@
             // Morris.Donut({
             //     element: 'morris-donut-chart',
             //     data: [{
-            //         label: "Profits",
-            //         value: 12
+            //         label: "Kal",
+            //         value: 3000
             //     }, {
             //         label: "Users",
-            //         value: 30
-            //     }, {
-            //         label: "Total Sales",
-            //         value: 20
-            //     }],
+            //         value: 0
+            //     },],
             //     colors: [
-            //         '#A6A6A6', '#414e63',
-            //         '#e96562'
+            //         '#A6A6A6', '#414e63'
             //     ],
             //     resize: true
             // });
@@ -188,11 +172,11 @@
             // });
 
 
-            $('.bar-chart').cssCharts({ type: "bar" });
-            $('.donut-chart').cssCharts({ type: "donut" }).trigger('show-donut-chart');
-            $('.line-chart').cssCharts({ type: "line" });
+            // $('.bar-chart').cssCharts({ type: "bar" });
+            // $('.donut-chart').cssCharts({ type: "donut" }).trigger('show-donut-chart');
+            // $('.line-chart').cssCharts({ type: "line" });
 
-            $('.pie-thychart').cssCharts({ type: "pie" });
+            // $('.pie-thychart').cssCharts({ type: "pie" });
 
 
         },
@@ -227,3 +211,4 @@
     $(".dropdown-button").dropdown();
 
 }(jQuery));
+

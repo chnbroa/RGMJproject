@@ -12,6 +12,9 @@ body {
     font-family: 'Open Sans', sans-serif;
     background: #1F2837;
 }
+html{
+    scroll-behavior:smooth;
+}
 
  #wrapper {
     width: 100%;
@@ -689,6 +692,11 @@ font-size: 19px;
     line-height: 8px;
     margin: 0px;
 }
+
+.blue_result{
+    color: #FFF;
+}
+
 .progress-bar-yellow{
     background-color: #bac44c;
   }
@@ -703,7 +711,7 @@ font-size: 19px;
     height: 402px;
 }
 .row_toggle{
-    display: none;
+    opacity: 0;
 }
 /* -------------- */
 .card.horizontal.cardIcon .card-image i {
