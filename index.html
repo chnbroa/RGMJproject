@@ -48,7 +48,8 @@
 				<li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown2"><i
 							class="fa fa-bell fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a></li> -->
 				<li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i
-							class="fa fa-user fa-fw"></i> <b>Kim</b> <i class="material-icons right">arrow_drop_down</i></a></li>
+							class="fa fa-user fa-fw"></i> <b id="user_id">Kim</b> <i
+							class="material-icons right">arrow_drop_down</i></a></li>
 			</ul>
 		</nav>
 
@@ -58,7 +59,7 @@
 			</li>
 			<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
 			</li>
-			<li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+			<li><button onclick="logout()"><i class="fa fa-sign-out fa-fw"></i> Logout</button>
 			</li>
 		</ul>
 
@@ -234,7 +235,9 @@
 							Dashboard</a>
 					</li>
 
-
+					<li>
+						<a href="form.html" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Forms </a>
+					</li>
 
 
 
@@ -252,9 +255,7 @@
 						<a href="table.html" class="waves-effect waves-dark"><i class="fa fa-table"></i> Responsive Tables</a>
 					</li>
 
-					<li>
-						<a href="form.html" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Forms </a>
-					</li>
+
 
 
 					<li>
@@ -312,10 +313,20 @@
 			</div>
 			<div id="page-inner">
 
-				<div class="dashboard-cards">
+				<div class="row login">
+					<div class="input-field col s6">
+						<i class="material-icons prefix">account_circle</i>
+						<input id="icon_prefix" type="text" class="validate" required>
+						<label for="icon_prefix">Name</label>
+					</div>
+					<div class="input-field col s6">
+						<button onclick="saveName()" class="custom-btn btn-12 "><span>Save !</span><span>Click!</span></button>
+					</div>
+				</div>
+
+
+				<div class="dashboard-cards display_tog">
 					<div class="row">
-
-
 						<div class="col-xs-12 col-sm-6 col-md-6">
 							<div class="card horizontal cardIcon ">
 								<div class="card-image red">
@@ -354,8 +365,8 @@
 							</div>
 						</div>
 
-						<div class="col-xs-12 col-sm-6 col-md-6">
-							<div class="card horizontal cardIcon ">
+						<div class="col-xs-12 col-sm-6 col-md-6 ">
+							<div class="card horizontal cardIcon row_toggle">
 								<div class="card-image blue">
 
 									<button id="speech_text_button" type="button" class=" waves-effect waves-dark "> <i
@@ -720,6 +731,7 @@
 
 	<script src="assets/js/custom-scripts.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src="assets/js/user.js"></script>
 
 
 </body>
