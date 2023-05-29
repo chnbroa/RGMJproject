@@ -1,24 +1,49 @@
 
 
-// 선택이미지 미리보기
-// function LoadImg(value) {
-//   if (value.files && value.files[0]) {
-
-//     var reader = new FileReader();
-
-//     reader.onload = function (e) {
-//       $('#photoImg').attr('src', e.target.result);
-//       $('#photoImg').show();
-//     }
-
-//     reader.readAsDataURL(value.files[0]);
-//   }
-// }
-
-
-// const p = document.getElementById("search_test");
 
 let productData;
+
+
+function print_storage_data(data) {
+  if (data == undefined) { return 0; }
+  else { return data }
+}
+
+function nutrient_data_save(data) {
+  let structure = {};
+  const user_name = localStorage.getItem('savedData');
+  const storage_chk = localStorage.getItem(user_name);
+  let key = Object.keys(data);
+  if (storage_chk) {
+    structure = JSON.parse(localStorage.getItem(user_name));
+    //로컬스토리지에 있을경우 불러와서더해준다.
+    for (let i in key) {
+      if (key[i] == "단백질(g)") { structure['단백질'] += data[key[i]][0]; }
+      else if (key[i] == "지방(g)") { structure['지방'] += data[key[i]][0]; }
+      else if (key[i] == "탄수화물(g)") { structure['탄수화물'] += data[key[i]][0]; }
+      else if (key[i] == "콜레스테롤(㎎)") { structure['콜레스테롤'] += data[key[i]][0]; }
+      else if (key[i] == "총 포화 지방산(g)") { structure['총 포화 지방산'] += data[key[i]][0]; }
+      else if (key[i] == "나트륨(㎎)") { structure['나트륨'] += data[key[i]][0]; }
+      else if (key[i] == "에너지(㎉)") { structure['칼로리'] += data[key[i]][0]; }
+      else if (key[i] == "총당류(g)") { structure['총당류'] += data[key[i]][0]; }
+    }
+
+  }
+  else {
+    for (let i in key) {
+      if (key[i] == "단백질(g)") { structure['단백질'] = data[key[i]][0]; }
+      else if (key[i] == "지방(g)") { structure['지방'] = data[key[i]][0]; }
+      else if (key[i] == "탄수화물(g)") { structure['탄수화물'] = data[key[i]][0]; }
+      else if (key[i] == "콜레스테롤(㎎)") { structure['콜레스테롤'] = data[key[i]][0]; }
+      else if (key[i] == "총 포화 지방산(g)") { structure['총 포화 지방산'] = data[key[i]][0]; }
+      else if (key[i] == "나트륨(㎎)") { structure['나트륨'] = data[key[i]][0]; }
+      else if (key[i] == "에너지(㎉)") { structure['칼로리'] = data[key[i]][0]; }
+      else if (key[i] == "총당류(g)") { structure['총당류'] = data[key[i]][0]; }
+    }
+  }
+  localStorage.setItem(user_name, JSON.stringify(structure));
+  return structure;
+}
 
 
 async function speech_text(text) {
@@ -106,32 +131,36 @@ function nutrient_cal(idx, val) {
 }
 
 
-function progress_bar_apply(structure) {
+function progress_bar_apply() {
+  const user_name = localStorage.getItem('savedData');
+  let structure = {};
+  structure = JSON.parse(localStorage.getItem(user_name));
+
   //단백질
   const protein = document.getElementById("search_protein");
   const protein_span = document.getElementById("search_protein_span");
-  let val = nutrient_cal("단백질", structure["단백질(g)"]) + "%";
+  let val = nutrient_cal("단백질", print_storage_data(structure["단백질"])) + "%";
   protein.style.width = val;
   protein_span.innerHTML = val;
 
   //지방
   const province = document.getElementById("search_fatty");
   const province_span = document.getElementById("search_fatty_span");
-  val = nutrient_cal("지방", structure["지방(g)"]) + "%";
+  val = nutrient_cal("지방", print_storage_data(structure["지방"])) + "%";
   province.style.width = val;
   province_span.innerHTML = val;
 
   //탄수화물
   const carbohydrate = document.getElementById("search_carbohydrate");
   const carbohydrate_span = document.getElementById("search_carbohydrate_span");
-  val = nutrient_cal("탄수화물", structure["탄수화물(g)"]) + "%";
+  val = nutrient_cal("탄수화물", print_storage_data(structure["탄수화물"])) + "%";
   carbohydrate.style.width = val;
   carbohydrate_span.innerHTML = val;
 
   //콜레스테롤
   const holesterol = document.getElementById("search_cholesterol");
   const holesterol_span = document.getElementById("search_cholesterol_span");
-  val = nutrient_cal("콜레스테롤", structure["콜레스테롤(㎎)"]) + "%";
+  val = nutrient_cal("콜레스테롤", print_storage_data(structure["콜레스테롤"])) + "%";
   holesterol.style.width = val;
   holesterol_span.innerHTML = val;
 
@@ -139,7 +168,7 @@ function progress_bar_apply(structure) {
   //총 포화 지방산
   const saturated_fatty = document.getElementById("search_saturated_fatty");
   const saturated_fatty_span = document.getElementById("search_saturated_fatty_span");
-  val = nutrient_cal("총 포화 지방산", structure["총 포화 지방산(g)"]) + "%";
+  val = nutrient_cal("총 포화 지방산", print_storage_data(structure["총 포화 지방산"])) + "%";
   saturated_fatty.style.width = val;
   saturated_fatty_span.innerHTML = val;
 
@@ -147,27 +176,86 @@ function progress_bar_apply(structure) {
 
   const sugars = document.getElementById("search_sugars");
   const sugars_span = document.getElementById("search_sugars_span");
-  val = nutrient_cal("총당류", structure["총당류(g)"]) + "%";
+  val = nutrient_cal("총당류", print_storage_data(structure["총당류"])) + "%";
   sugars.style.width = val;
   sugars_span.innerHTML = val;
 
   //나트륨
   const nateulyum = document.getElementById("search_nateulyum");
   const nateulyum_span = document.getElementById("search_nateulyum_span");
-  val = nutrient_cal("나트륨", structure["나트륨(㎎)"]) + "%";
+  val = nutrient_cal("나트륨", print_storage_data(structure["나트륨"])) + "%";
   nateulyum.style.width = val;
   nateulyum_span.innerHTML = val;
 }
 
-function kcal_graph(structure) {
+
+function progress_bar_result_apply(structure) {
+  //검색결과 
+  //단백질
+  const protein = document.getElementById("search_protein_r");
+  const protein_span = document.getElementById("search_protein_span_r");
+  let val = nutrient_cal("단백질", print_storage_data(structure["단백질(g)"])) + "%";
+  protein.style.width = val;
+  protein_span.innerHTML = val;
+
+  //지방
+  const province = document.getElementById("search_fatty_r");
+  const province_span = document.getElementById("search_fatty_span_r");
+  val = nutrient_cal("지방", print_storage_data(structure["지방(g)"])) + "%";
+  province.style.width = val;
+  province_span.innerHTML = val;
+
+  //탄수화물
+  const carbohydrate = document.getElementById("search_carbohydrate_r");
+  const carbohydrate_span = document.getElementById("search_carbohydrate_span_r");
+  val = nutrient_cal("탄수화물", print_storage_data(structure["탄수화물(g)"])) + "%";
+  carbohydrate.style.width = val;
+  carbohydrate_span.innerHTML = val;
+
+  //콜레스테롤
+  const holesterol = document.getElementById("search_cholesterol_r");
+  const holesterol_span = document.getElementById("search_cholesterol_span_r");
+  val = nutrient_cal("콜레스테롤", print_storage_data(structure["콜레스테롤(㎎)"])) + "%";
+  holesterol.style.width = val;
+  holesterol_span.innerHTML = val;
+
+
+  //총 포화 지방산
+  const saturated_fatty = document.getElementById("search_saturated_fatty_r");
+  const saturated_fatty_span = document.getElementById("search_saturated_fatty_span_r");
+  val = nutrient_cal("총 포화 지방산", print_storage_data(structure["총 포화 지방산(g)"])) + "%";
+  saturated_fatty.style.width = val;
+  saturated_fatty_span.innerHTML = val;
+
+  //총 당류
+
+  const sugars = document.getElementById("search_sugars_r");
+  const sugars_span = document.getElementById("search_sugars_span_r");
+  val = nutrient_cal("총당류", print_storage_data(structure["총당류(g)"])) + "%";
+  sugars.style.width = val;
+  sugars_span.innerHTML = val;
+
+  //나트륨
+  const nateulyum = document.getElementById("search_nateulyum_r");
+  const nateulyum_span = document.getElementById("search_nateulyum_span_r");
+  val = nutrient_cal("나트륨", print_storage_data(structure["나트륨(㎎)"])) + "%";
+  nateulyum.style.width = val;
+  nateulyum_span.innerHTML = val;
+}
+
+
+function kcal_graph() {
+  const user_name = localStorage.getItem('savedData');
+  let structure = {};
+  structure = JSON.parse(localStorage.getItem(user_name));
 
   let val = [{
     label: "하루 권장 Kacl",
     value: 2500
   }, {
 
-    label: structure['1회제공량'] + "g당 Kacl",
-    value: Number(structure['에너지(㎉)'])
+    label: "섭취 Kacl",
+    value: print_storage_data(structure['칼로리'])
   }];
 
   Morris.Donut({
@@ -179,33 +267,37 @@ function kcal_graph(structure) {
   });
 }
 
-function nutrient_graph(structure) {
+function nutrient_graph() {
+  const user_name = localStorage.getItem('savedData');
+  let structure = {};
+  structure = JSON.parse(localStorage.getItem(user_name));
+
   Morris.Bar({
     element: 'morris-bar-chart',
     data: [{
       y: '단백질',
       a: 55,
-      b: structure["단백질(g)"]
+      b: print_storage_data(structure["단백질"])
     }, {
       y: '지방',
       a: 54,
-      b: structure["지방(g)"]
+      b: print_storage_data(structure["지방"])
     }, {
       y: '탄수화물',
       a: 324,
-      b: structure["탄수화물(g)"]
+      b: print_storage_data(structure["탄수화물"])
     }, {
       y: '콜레스테롤',
       a: 300,
-      b: structure["콜레스테롤(㎎)"]
+      b: print_storage_data(structure["콜레스테롤"])
     }, {
       y: '총 포화 지방산',
       a: 15,
-      b: structure["총 포화 지방산(g)"]
+      b: print_storage_data(structure["총 포화 지방산"])
     }, {
       y: '총당류',
       a: 100,
-      b: structure["총당류(g)"]
+      b: print_storage_data(structure["총당류"])
     }
     ],
     xkey: 'y',
@@ -226,6 +318,37 @@ function nutrient_graph(structure) {
 const row_toggle = document.querySelectorAll('.row_toggle');
 
 window.onload = function () {
+  //새로고침 user_id 유지
+  const savedData = localStorage.getItem('savedData');
+  const login_div = document.querySelector('.login');
+  const card_div = document.querySelector('.dashboard-cards');
+  if (savedData) {
+    document.getElementById('user_id').textContent = savedData;
+    login_div.classList.add('display_tog');
+    card_div.classList.remove('display_tog');
+  }
+  const storage_chk = localStorage.getItem(savedData);
+  if (storage_chk) {
+
+    //1일영향섭취기준(%) progress-bar
+    progress_bar_apply();
+
+    // //칼로리 원 그래프
+    // kcal_graph();
+
+    // //영양소 그래프
+    // nutrient_graph();
+
+    const row_save = document.querySelectorAll('.row_save');
+
+    row_save.forEach(element => {
+      element.classList.remove('row_toggle');
+    });
+
+
+  }
+
+
   const imageInput = document.querySelector('input[type="file"]');
 
   // 카메라 버튼
@@ -268,11 +391,16 @@ window.onload = function () {
         console.log(data); // Print the JSON data to the console
         let structure = {};
         let key = Object.keys(data["search_food"]);
+
         for (let i in key) { structure[key[i]] = data["search_food"][key[i]][0] }
+
+
         speech_text(structure['식품명']);
         document.getElementById('speech_text_button').addEventListener('click', function () {
           speech_text(structure['식품명']);
         });
+
+        let structure_local = nutrient_data_save(data["search_food"]);
 
         //원재료 검색 결과
         material_search_result(data);
@@ -281,13 +409,15 @@ window.onload = function () {
         material_table(data);
 
         //1일영향섭취기준(%) progress-bar
-        progress_bar_apply(structure);
+        progress_bar_apply();
 
         //칼로리 원 그래프
-        kcal_graph(structure)
+        kcal_graph();
 
         //영양소 그래프
-        nutrient_graph(structure)
+        nutrient_graph();
+
+        progress_bar_result_apply(structure);
 
         //그래프 토글
         row_toggle.forEach(element => {

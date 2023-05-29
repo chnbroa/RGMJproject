@@ -48,7 +48,7 @@
 				<li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown2"><i
 							class="fa fa-bell fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a></li> -->
 				<li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i
-							class="fa fa-user fa-fw"></i> <b id="user_id">Kim</b> <i
+							class="fa fa-user fa-fw"></i> <b id="user_id"> </b> <i
 							class="material-icons right">arrow_drop_down</i></a></li>
 			</ul>
 		</nav>
@@ -311,6 +311,9 @@
 				</ol>
 
 			</div>
+
+
+
 			<div id="page-inner">
 
 				<div class="row login">
@@ -365,8 +368,10 @@
 							</div>
 						</div>
 
+
+
 						<div class="col-xs-12 col-sm-6 col-md-6 ">
-							<div class="card horizontal cardIcon row_toggle">
+							<div class="card horizontal cardIcon ">
 								<div class="card-image blue">
 
 									<button id="speech_text_button" type="button" class=" waves-effect waves-dark "> <i
@@ -381,131 +386,34 @@
 							</div>
 						</div>
 
-
-
-						<!-- <div class="col-xs-12 col-sm-6 col-md-6">
-							<div class="card horizontal cardIcon waves-effect waves-dark">
-								<div class=" card-image orange">
-									<i class="material-icons dp48">find_in_page</i>
+						<div class="col-md-4 col-sm-12 col-xs-12">
+							<div class="card card_height row_toggle">
+								<div class="card-action">
+									<b>원재료 검색 결과</b>
 								</div>
-								<div class="card-stacked orange">
-									<div class="card-content">
-										<h3>웹페이지</h3>
+								<div class="card-image">
+									<div class="collection">
+										<a href="#result_table" class="collection-item">Red<span class=" badge red red_result"
+												data-badge-caption="">none</span></a>
+										<a href="#result_table" class="collection-item">Blue<span
+												class="badge blue blue_result">none</span></a>
+										<a href="#result_table" class="collection-item"><span
+												class="badge yellow_result">none</span>Yellow</a>
 									</div>
 								</div>
 							</div>
-						</div> -->
-
-
-						<!-- 카드들 주석-->
-
-						<!-- <div class="col-xs-12 col-sm-6 col-md-3">
-
-							<div class="card horizontal cardIcon waves-effect waves-dark">
-								<div class="card-image blue">
-									<i class="material-icons dp48">equalizer</i>
-								</div>
-								<div class="card-stacked blue">
-									<div class="card-content">
-										<h3>24,225</h3>
-									</div>
-									<div class="card-action">
-										<strong>PRODUCTS</strong>
-									</div>
-								</div>
-							</div>
-
 						</div>
-						<div class="col-xs-12 col-sm-6 col-md-3">
-
-							<div class="card horizontal cardIcon waves-effect waves-dark">
-								<div class="card-image green">
-									<i class="material-icons dp48">supervisor_account</i>
-								</div>
-								<div class="card-stacked green">
-									<div class="card-content">
-										<h3>88,658</h3>
-									</div>
-									<div class="card-action">
-										<strong>VISITS</strong>
-									</div>
-								</div>
-							</div>
-
-						</div> -->
-
 
 					</div>
 				</div>
 
 				<!-- /. ROW  -->
 
-				<div class="row row_toggle">
-					<div class="col-md-4 col-sm-12 col-xs-12">
-						<div class="card card_height">
-							<div class="card-action">
-								<b>원재료 검색 결과</b>
-							</div>
-							<div class="card-image">
-								<div class="collection">
-									<a href="#result_table" class="collection-item">Red<span class=" badge red red_result"
-											data-badge-caption="">none</span></a>
-									<a href="#result_table" class="collection-item">Blue<span
-											class="badge blue blue_result">none</span></a>
-									<a href="#result_table" class="collection-item"><span
-											class="badge yellow_result">none</span>Yellow</a>
-								</div>
-							</div>
-
-						</div>
-
-					</div>
-
-
-					<div class="col-md-8 col-sm-12 col-xs-12">
-						<!-- <div class="card">
-											<div class="card-action">
-												<b>User List</b>
-											</div>
-											<div class="card-image">
-												<ul class="collection">
-													<li class="collection-item avatar">
-														<i class="material-icons circle green">track_changes</i>
-														<span class="title">Title</span>
-														<p>First Line <br>
-															Second Line
-														</p>
-														<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-													</li>
-													<li class="collection-item avatar">
-														<i class="material-icons circle">folder</i>
-														<span class="title">Title</span>
-														<p>First Line <br>
-															Second Line
-														</p>
-														<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-													</li>
-													<li class="collection-item avatar">
-														<i class="material-icons circle green">track_changes</i>
-														<span class="title">Title</span>
-														<p>First Line <br>
-															Second Line
-														</p>
-														<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-													</li>
-													<li class="collection-item avatar">
-														<i class="material-icons circle red">play_arrow</i>
-														<span class="title">Title</span>
-														<p>First Line <br>
-															Second Line
-														</p>
-														<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-													</li>
-												</ul>
-											</div> -->
+				<div class="row  row_toggle row_save">
+					<div class="col-md-7 col-sm-12 col-xs-12">
 						<div class="card">
 							<div class="card-action">
-								1일영향섭취기준(%)
+								[누적] 1일영향섭취기준(%)
 							</div>
 
 							<div class="card-content">
@@ -586,7 +494,90 @@
 							</div>
 						</div>
 					</div>
+					<div class="col-md-5 col-sm-12 col-xs-12">
+						<div class="card row_toggle">
+							<div class="card-action">
+								[검색결과] 1일영향섭취기준(%)
+							</div>
 
+							<div class="card-content">
+
+								<div class="search_result one">
+									<p>단백질</p>
+									<div class="progress progress-striped active">
+										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100"
+											aria-valuemin="30" aria-valuemax="100" id="search_protein_r" style="width: 0%">
+											<span class="sr-only" id="search_protein_span_r">0%</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="search_result two">
+									<p>지방</p>
+									<div class="progress progress-striped active">
+										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0"
+											aria-valuemax="100" id="search_fatty_r" style="width: 0%">
+											<span class="sr-only" id="search_fatty_span_r">0%</span>
+										</div>
+									</div>
+
+								</div>
+
+								<div class="search_result thr">
+									<p>탄수화물</p>
+									<div class="progress progress-striped active">
+										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="" aria-valuemin="0"
+											aria-valuemax="100" id="search_carbohydrate_r" style="width: 0%">
+											<span class="sr-only" id="search_carbohydrate_span_r">0%</span>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="search_result four">
+									<p>콜레스테롤</p>
+									<div class="progress progress-striped active ">
+										<div class="progress-bar progress-bar-yellow" role="progressbar" aria-valuenow="80"
+											aria-valuemin="0" aria-valuemax="100" id="search_cholesterol_r" style="width: 0%">
+											<span class="sr-only" id="search_cholesterol_span_r">0%</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="search_result five">
+									<p>총 포화 지방산</p>
+									<div class="progress progress-striped active ">
+										<div class="progress-bar progress-bar-pink" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100" id="search_saturated_fatty_r" style="width: 0%">
+											<span class="sr-only" id="search_saturated_fatty_span_r">0%</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="search_result six">
+									<p>총당류</p>
+									<div class="progress progress-striped active ">
+										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80"
+											aria-valuemin="0" aria-valuemax="100" id="search_sugars_r" style="width: 0%">
+											<span class="sr-only" id="search_sugars_span_r">0%</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="search_result sev">
+									<p>나트륨</p>
+									<div class="progress progress-striped active ">
+										<div class="progress-bar progress-bar-gray" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100" id="search_nateulyum_r" style="width: 0%">
+											<span class="sr-only" id="search_nateulyum_span_r">0%</span>
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
 				</div>
 				<!-- 
 									<div class="col-md-6">
@@ -600,7 +591,7 @@
 
 
 				<!-- /. ROW  -->
-				<div class="row row_toggle">
+				<div class="row row_toggle ">
 
 					<div class="col-xs-12 col-sm-12  col-md-7">
 						<div class="card test ">

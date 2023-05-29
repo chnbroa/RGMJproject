@@ -7,17 +7,6 @@ function saveData() {
 }
 
 
-//새로고침 user_id 유지
-window.onload = function () {
-  const savedData = localStorage.getItem('savedData');
-  const login_div = document.querySelector('.login');
-  const card_div = document.querySelector('.dashboard-cards');
-  if (savedData) {
-    document.getElementById('user_id').textContent = savedData;
-    login_div.classList.add('display_tog');
-    card_div.classList.remove('display_tog');
-  }
-};
 
 
 function saveName() {
@@ -53,6 +42,9 @@ function saveName() {
   const card_div = document.querySelector('.dashboard-cards');
   login_div.classList.add('display_tog');
   card_div.classList.remove('display_tog');
+
+  //progress 바를 위한 새로고침
+  location.reload();
 }
 
 
@@ -62,8 +54,20 @@ function logout() {
   id_show.innerHTML = "";
 
 
-  const login_div = document.querySelector('.login');
-  const card_div = document.querySelector('.dashboard-cards');
-  card_div.classList.add('display_tog');
-  login_div.classList.remove('display_tog');
+  // const login_div = document.querySelector('.login');
+  // const card_div = document.querySelector('.dashboard-cards');
+  // const row_save = document.querySelectorAll('.row_save');
+
+  location.reload();
+
+  // card_div.classList.add('display_tog');
+  // login_div.classList.remove('display_tog');
+
+
+  // row_toggle.forEach(element => {
+  //   element.classList.add('row_toggle');
+  // });
+  // row_save.forEach(element => {
+  //   element.classList.add('row_save');
+  // });
 }
