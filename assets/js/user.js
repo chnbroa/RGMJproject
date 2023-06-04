@@ -71,3 +71,17 @@ function logout() {
   //   element.classList.add('row_save');
   // });
 }
+
+
+function user_reset() {
+  const user_name = localStorage.getItem('savedData');
+  let structure = {};
+  structure = JSON.parse(localStorage.getItem(user_name));
+  for (i in structure) { structure[i] = 0; }
+  localStorage.setItem(user_name, JSON.stringify(structure));
+  location.reload();
+}
+
+function user_check() {
+  location.reload();
+}

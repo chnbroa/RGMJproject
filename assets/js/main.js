@@ -250,11 +250,11 @@ function kcal_graph() {
   structure = JSON.parse(localStorage.getItem(user_name));
 
   let val = [{
-    label: "하루 권장 Kacl",
+    label: "하루 권장 Kcal",
     value: 2500
   }, {
 
-    label: "섭취 Kacl",
+    label: "섭취 Kcal",
     value: print_storage_data(structure['칼로리'])
   }];
 
@@ -314,6 +314,25 @@ function nutrient_graph() {
 }
 
 
+function user_cancel(data) {
+  const user_name = localStorage.getItem('savedData');
+  let structure = {};
+  structure = JSON.parse(localStorage.getItem(user_name));
+  let key = Object.keys(data);
+  for (let i in key) {
+    console.log(i);
+    if (key[i] == "단백질(g)") { structure['단백질'] -= data[key[i]][0]; }
+    else if (key[i] == "지방(g)") { structure['지방'] -= data[key[i]][0]; }
+    else if (key[i] == "탄수화물(g)") { structure['탄수화물'] -= data[key[i]][0]; }
+    else if (key[i] == "콜레스테롤(㎎)") { structure['콜레스테롤'] -= data[key[i]][0]; }
+    else if (key[i] == "총 포화 지방산(g)") { structure['총 포화 지방산'] -= data[key[i]][0]; }
+    else if (key[i] == "나트륨(㎎)") { structure['나트륨'] -= data[key[i]][0]; }
+    else if (key[i] == "에너지(㎉)") { structure['칼로리'] -= data[key[i]][0]; }
+    else if (key[i] == "총당류(g)") { structure['총당류'] -= data[key[i]][0]; }
+  }
+  localStorage.setItem(user_name, JSON.stringify(structure));
+  location.reload();
+}
 
 const row_toggle = document.querySelectorAll('.row_toggle');
 
@@ -401,6 +420,8 @@ window.onload = function () {
         });
 
         let structure_local = nutrient_data_save(data["search_food"]);
+        //캔슬버튼 
+
 
         //원재료 검색 결과
         material_search_result(data);
@@ -420,6 +441,12 @@ window.onload = function () {
         progress_bar_result_apply(structure);
 
         //그래프 토글
+
+
+        document.querySelector('.user_cancel').addEventListener('click', function () {
+          user_cancel(data["search_food"]);
+        });
+
         row_toggle.forEach(element => {
           element.classList.remove('row_toggle');
         });
@@ -469,6 +496,7 @@ document.querySelector('.capture_page').addEventListener('click', function () {
     doc.save("capture.pdf");
   });
 });
+
 
 
 

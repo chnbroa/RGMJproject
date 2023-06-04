@@ -235,9 +235,7 @@
 							Dashboard</a>
 					</li>
 
-					<li>
-						<a href="form.html" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Forms </a>
-					</li>
+
 
 
 
@@ -250,7 +248,9 @@
 					<li>
 						<a href="tab-panel.html" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i> Tabs & Panels</a>
 					</li>
-
+					<li>
+						<a href="form.html" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Forms </a>
+					</li>
 					<li>
 						<a href="table.html" class="waves-effect waves-dark"><i class="fa fa-table"></i> Responsive Tables</a>
 					</li>
@@ -616,7 +616,7 @@
 										<div id="morris-donut-chart"></div>
 									</div>
 									<div class="card-action">
-										<b>Kacl graph</b>
+										<b>Kcal graph</b>
 									</div>
 								</div>
 							</div>
@@ -675,10 +675,14 @@
 					<i class="material-icons">menu</i>
 				</a>
 				<ul>
-					<li><a class="btn-floating red"><i class="material-icons">track_changes</i></a></li>
-					<li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-					<li><a class="btn-floating green capture_page"><i class="material-icons">publish</i></a></li>
-					<li><a class="btn-floating blue "><i class="material-icons">attach_file</i></a></li>
+					<li><button button onclick="user_reset()" class="btn-floating red"><i
+								class="material-icons">refresh</i></button>
+					</li>
+					<li><button class="btn-floating yellow darken-1 user_cancel"><i class="material-icons">close</i></button></li>
+					<li><button button onclick="user_check()" class="btn-floating green user_check"><i
+								class="material-icons">done_outline</i></button>
+					</li>
+					<li><a class="btn-floating blue capture_page"><i class="material-icons">attach_file</i></a></li>
 				</ul>
 			</div>
 
