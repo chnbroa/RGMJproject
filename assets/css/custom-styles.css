@@ -865,7 +865,15 @@ padding: 0 15px 0px 15px;
 		box-shadow: none;
 	}
     .navbar-top-links{
-        display: none;
+        position:absolute;
+        left:70%;
+        top:5%;
+    }
+
+    @media(max-width:630px) {
+        .navbar-top-links{
+            left:65%;
+        }
     }
 
 
@@ -881,7 +889,16 @@ padding: 0 15px 0px 15px;
 		.top-navbar .nav > li > a{
 			padding:17px 12px;
 		}
+        .navbar-top-links{
+            left:60%;
+        }
  }
+ @media(max-width:420px) {
+    .navbar-top-links{
+        left:50%;
+    }
+}
+
    @media(max-width:320px) {
 	  ul#dropdown1 {
 			left: 0px !important;
@@ -892,4 +909,7 @@ padding: 0 15px 0px 15px;
 		.top-navbar .nav > li > a{
 			padding:17px 9px;
 		}
+        .navbar-top-links{
+            left:45%;
+        }
  }
